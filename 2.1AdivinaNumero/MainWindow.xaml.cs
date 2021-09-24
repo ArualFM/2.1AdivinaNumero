@@ -22,12 +22,15 @@ namespace _2._1AdivinaNumero
   
     public partial class MainWindow : Window
     {
+        
+
+        int numeroAlea = NumeroAleatorio();
         public MainWindow()
         {
             InitializeComponent();
+           
         }
-
-        public int NumeroAleatorio()
+        public static int NumeroAleatorio()
         {
             Random r = new Random();
             int aleatorio = r.Next(0, 100);
@@ -36,7 +39,7 @@ namespace _2._1AdivinaNumero
 
         private void BotonComprobar_Click(object sender, RoutedEventArgs e)
         {
-            int numeroAlea = NumeroAleatorio();
+           
             int respuesta = int.Parse(ResultadoTextBox.Text);
             if (numeroAlea==respuesta)
             {
@@ -53,6 +56,19 @@ namespace _2._1AdivinaNumero
 
         }
 
+        private void BotonReiniciar_Click(object sender, RoutedEventArgs e)
+        {
+            numeroAlea = NumeroAleatorio();
+            ResultadoTextBox.Text = "";
+            ResultadoTextBox.Text = String.Empty;
+            
 
+
+        }
+
+        private void ResultadoTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
